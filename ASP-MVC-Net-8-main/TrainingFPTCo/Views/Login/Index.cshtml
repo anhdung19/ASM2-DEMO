@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model TrainingFPTCo.Models.LoginViewModel
+
+@{
+    ViewData["title"] = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<section class="vh-100" style="background-color: #EE8526;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-5 d-none d-md-block">
+                            <img src=https://btec.fpt.edu.vn/wp-content/themes/btec/btec-tuyen-sinh-2023/images/btec-fpt-tuyen-sinh-2024.jpg"
+                                 alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                        </div>
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
+                                <div class="card-body">
+
+                                    <h1>Login FPT BTEC</h1>
+                                    <p class="text-medium-emphasis">Sign In to your account</p>
+
+                                    @if (ViewData["MessageLogin"] != null)
+                                    {
+                                        <p class="text-danger text-center">
+                                            @ViewData["MessageLogin"]
+                                        </p>
+                                    }
+
+                                    @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                                    {
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">
+                                                <svg class="icon">
+                                                    <use xlink:href="/training/vendors/coreui/icons/svg/free.svg#cil-user"></use>
+                                                </svg>
+                                            </span>
+                                            @* <input class="form-control" type="text" placeholder="Username"> *@
+                                            @Html.TextBoxFor(m => m.UserName, new
+                                                {
+                                                    @class
+                                                     = "form-control",
+                                                    @id
+                                                     = "username"
+                                                })
+                                        </div>
+                                        <div class="input-group mb-4">
+                                            <span class="input-group-text">
+                                                <svg class="icon">
+                                                    <use xlink:href="/training/vendors/coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                                                </svg>
+                                            </span>
+                                            @* <input class="form-control" type="password" placeholder="Password"> *@
+                                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "password" })
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <button class="btn btn-warning btn-rounded px-4" data-mdb-ripple-init  type="submit">Login</button>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
